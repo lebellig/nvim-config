@@ -7,18 +7,19 @@ return {
 
     local colors = {
       blue = "#65D1FF",
-      green = "#3EFFDC",
+      green = "#98971a",
       violet = "#FF61EF",
-      yellow = "#FFDA7B",
+      yellow = "#d79921",
       red = "#FF4A4A",
-      fg = "#c3ccdc",
-      bg = "#112638",
-      inactive_bg = "#2c3043",
+      orange = "#d65d0e",
+      fg = "#ebdbb2",
+      bg = "#282828",
+      inactive_bg = "#282828",
     }
 
     local my_lualine_theme = {
       normal = {
-        a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+        a = { bg = colors.orange, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
@@ -28,7 +29,7 @@ return {
         c = { bg = colors.bg, fg = colors.fg },
       },
       visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
+        a = { bg = colors.red, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
