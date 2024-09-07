@@ -48,11 +48,12 @@ return {
             return utils.root_has_file({ "pyproject.toml" }) -- only enable if root has pyproject.toml
           end,
         }),
-        diagnostics.mypy.with({
-          -- extra_args = function()
-          --   local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
-          --   return { "--python-executable", virtual .. "/bin/python3" }
-          -- end,
+
+        diagnostics.pyright.with({
+          extra_args = function()
+            local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+            return { "--python-executable", virtual .. "/bin/python3" }
+          end,
         }), -- python type checker
         diagnostics.eslint_d.with({ -- js/ts linter
           condition = function(utils)
