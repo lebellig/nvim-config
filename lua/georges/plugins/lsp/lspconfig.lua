@@ -70,7 +70,6 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-
     -- configure graphql language server
     lspconfig["graphql"].setup({
       capabilities = capabilities,
@@ -79,10 +78,25 @@ return {
     })
 
     -- configure python server (with special settings)
-    lspconfig["jedi_language_server"].setup({
+    lspconfig["ruff"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = {"python"},
+      filetypes = { "python" },
+    })
+    lspconfig["pyright"].setup({
+      settings = {
+        pyright = {
+          -- Using Ruff's import organizer
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            -- Ignore all files for analysis to exclusively use Ruff for linting
+            ignore = { "*" },
+            typeCheckingMode = "strict",
+          },
+        },
+      },
     })
 
     -- configure lua server (with special settings)

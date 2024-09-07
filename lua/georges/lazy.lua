@@ -12,9 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "georges.plugins" }, { import = "georges.plugins.lsp" } }, {
-  install = {
-    colorscheme = { "nightfly" },
-  },
   checker = {
     enabled = true,
     notify = false,
@@ -22,4 +19,7 @@ require("lazy").setup({ { import = "georges.plugins" }, { import = "georges.plug
   change_detection = {
     notify = false,
   },
+  -- spec = {
+  --       { import = "lazyvim.plugins.extras.coding.copilot" },
+  -- },
 })
