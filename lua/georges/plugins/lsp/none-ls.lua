@@ -14,6 +14,7 @@ return {
 
     mason_null_ls.setup({
       ensure_installed = {
+        "ruff",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "black", -- python formatter
@@ -41,7 +42,7 @@ return {
           extra_filetypes = { "svelte" },
         }), -- js/ts formatter
         formatting.stylua, -- lua formatter
-        formatting.isort,
+        formatting.ruff,
         formatting.black,
         diagnostics.pylint,
         diagnostics.eslint_d.with({ -- js/ts linter
