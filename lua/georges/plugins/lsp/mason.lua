@@ -35,5 +35,12 @@ return {
         "ruff", -- python formatter
       },
     })
+
+    vim.diagnostic.config({
+      virtual_text = true, -- Enable virtual text for diagnostics
+      signs = true,        -- Enable signs in the gutter
+      underline = true,    -- Enable underlining for diagnostics
+      update_in_insert = false, -- Disable updates in insert mode
+    })
   end,
 }
