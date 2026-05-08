@@ -82,41 +82,26 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "python" },
-      analysis = {
-        typeCheckingMode = "strict",
-        diagnosticMode = "workspace",
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
+    })
+    lspconfig["pyright"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "python" },
+      settings = {
+        pyright = {
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            typeCheckingMode = "basic", -- Can be "off", "basic", or "strict"
+            diagnosticMode = "workspace", -- Can be "workspace" or "openFiles"
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true, -- Check types in installed libraries
+          },
+        },
       },
     })
-    -- lspconfig["pyright"].setup({
-    --   settings = {
-    --     pyright = {
-    --       -- Using Ruff's import organizer
-    --       disableOrganizeImports = true,
-    --     },
-    --     python = {
-    --       analysis = {
-    --         -- Ignore all files for analysis to exclusively use Ruff for linting
-    --         ignore = { "*" },
-    --         typeCheckingMode = "strict",
-    --       },
-    --     },
-    --   },
-    -- })
-    -- lspconfig["pyright"].setup({
-    --   settings = {
-    --     python = {
-    --       analysis = {
-    --         typeCheckingMode = "strict", -- Can be "off", "basic", or "strict"
-    --         diagnosticMode = "workspace", -- Can be "workspace" or "openFiles"
-    --         autoSearchPaths = true,
-    --         useLibraryCodeForTypes = true, -- Check types in installed libraries
-    --       },
-    --     },
-    --   },
-    -- })
-    --
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,

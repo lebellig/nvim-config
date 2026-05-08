@@ -1,5 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  commit = "fca0b67",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local nvimtree = require("nvim-tree")
